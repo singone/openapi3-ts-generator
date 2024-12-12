@@ -1,13 +1,13 @@
 ## 介绍
-[![GitHub Repo stars](https://img.shields.io/github/stars/rumengkai/openapi3-ts-generator?style=social)](https://github.com/rumengkai/openapi3-ts-generator)
-[![npm (scoped)](https://img.shields.io/npm/v/openapi3-ts-generator)](https://www.npmjs.com/package/openapi3-ts-generator)
-![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/rumengkai/openapi3-ts-generator?include_prereleases)
+[![GitHub Repo stars](https://img.shields.io/github/stars/singone/openapi3-ts-generator?style=social)](https://github.com/singone/openapi3-ts-generator.git)
+[![npm (scoped)](https://img.shields.io/npm/v/openapi3-generator-ts)](https://www.npmjs.com/package/openapi3-generator-ts)
+![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/singone/openapi3-ts-generator?include_prereleases)
 
 根据 [OpenApi3](https://swagger.io/blog/news/whats-new-in-openapi-3-0/) 文档生成 request 请求代码。
 
 ## 使用
 ```node
-npm i --save-dev openapi3-ts-generator
+npm i --save-dev openapi3-generator-ts
 ```
 在项目根目录新建 ```openapi.config.ts```
 ```ts
@@ -16,6 +16,10 @@ const { generateService } = require('openapi3-ts-generator')
 generateService({
   schemaPath: 'http://petstore.swagger.io/v2/swagger.json',
   servicesPath: './services',
+  beforeData(openAPI) {
+    // todo 修改参数
+    return openAPI;  
+  },
 })
 
 ```

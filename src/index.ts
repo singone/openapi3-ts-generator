@@ -57,6 +57,8 @@ export type GenerateServiceProps = {
   };
   namespace?: string;
 
+  beforeData?: (data: any) => any;
+
   mockPath?: string;
   /**
    * 模板文件的文件路径
@@ -118,9 +120,13 @@ export const generateService = async ({
   requestLibPath,
   schemaPath,
   mockPath,
+  beforeData,
   ...rest
 }: GenerateServiceProps) => {
-  const openAPI = await getOpenAPIConfig(schemaPath);
+  let openAPI = await getOpenAPIConfig(schemaPath);
+  if (beforeData){
+    openAPI = beforeData(openAPI);
+  }
   const requestImportStatement = getImportStatement(requestLibPath);
   const serviceGenerator = new ServiceGenerator(
     {

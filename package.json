@@ -1,10 +1,10 @@
 {
-  "name": "openapi3-ts-generator",
-  "version": "1.1.1",
+  "name": "openapi3-generator-ts",
+  "version": "1.0.2",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:rumengkai/openapi3-ts-generator.git"
+    "url": "git+git@github.com:singone/openapi3-ts-generator.git"
   },
   "license": "MIT",
   "author": "rumengkai",
@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "localConvert4Project": "rm -rf ./test/servers/ ./test/file-servers/ &&  npm run build && cd ./test && node ./test.js && cd .. && rm -rf /Users/fd/wj/psp-web-pro/src/services/wj && mv ./test/servers/api/  /Users/fd/wj/psp-web-pro/src/services/wj",
-    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch",
+    "prepublishOnly1": "npm run build && np --no-cleanup --yolo --no-publish --any-branch",
     "start": "tsc -w",
     "test": "rm -rf ./test/src/ ./test/mocks/ ./test/file-servers/ &&  npm run build && cd ./test && node ./test.js && cd .."
   },
